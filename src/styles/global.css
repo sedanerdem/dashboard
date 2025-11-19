@@ -1,0 +1,219 @@
+:root {
+  /* Legion Aura Theme - Void & Neon */
+  --bg-app: #030305;
+  /* Void Black */
+  --bg-panel: #0a0a0c;
+  /* Deep Metal */
+  --bg-sidebar: #050506;
+  /* Sidebar Void */
+
+  /* Neon Accents */
+  --neon-cyan: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-red: #ff003c;
+  --neon-green: #0aff00;
+  --neon-yellow: #ffd700;
+
+  /* Primary Accents */
+  --accent-primary: var(--neon-cyan);
+  --accent-secondary: var(--neon-purple);
+  --accent-danger: var(--neon-red);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #8b9bb4;
+  --text-muted: #4a5568;
+
+  /* Borders & Holograms */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-glow: var(--accent-primary);
+  --glass-bg: rgba(10, 10, 12, 0.6);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  --shadow-md: 0 0 15px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px var(--accent-primary), 0 0 4px var(--accent-primary);
+  --shadow-void: 0 0 30px rgba(0, 0, 0, 0.8);
+
+  /* Radius - Sharp & Angular */
+  --radius-lg: 4px;
+  --radius-md: 2px;
+  --radius-sm: 0px;
+
+  --font-main: 'Outfit', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"] {
+  --bg-app: #e6e9ef;
+  /* Softer, cooler gray */
+  --bg-panel: #f5f7fa;
+  /* Off-white to reduce glare */
+  --bg-sidebar: #f5f7fa;
+  /* Off-white */
+
+  --text-primary: #2d3748;
+  /* Softer dark gray */
+  --text-secondary: #718096;
+  --text-muted: #a0aec0;
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(245, 247, 250, 0.9);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 15px var(--accent-primary);
+  --shadow-void: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(188, 19, 254, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(0, 243, 255, 0.05) 0%, transparent 50%);
+}
+
+* {
+  box-sizing: border-box;
+  outline-color: var(--accent-primary);
+}
+
+/* Scrollbar Styling - Cyber */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  box-shadow: 0 0 5px var(--accent-primary);
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-app);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-area {
+  flex: 1;
+  overflow: auto;
+  padding: 32px;
+  position: relative;
+}
+
+/* Icon Helper */
+.icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+}
+
+/* Legion Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 0;
+  /* Sharp edges */
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:hover {
+  background: var(--accent-primary);
+  color: #000;
+  box-shadow: 0 0 20px var(--accent-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-icon {
+  padding: 8px;
+  border-radius: 0;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  color: var(--accent-primary);
+  text-shadow: 0 0 8px var(--accent-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-primary);
+}
+
+/* Input Styles - HUD */
+.input-glass {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
+  border-radius: 0;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.input-glass:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  border-left-color: var(--accent-primary);
+  box-shadow: -4px 0 10px -2px var(--accent-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
